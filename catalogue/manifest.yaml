@@ -10,7 +10,7 @@ spec:
  containers:
  - name: catalogue
    imagePullPolicy: Always
-   image: sahiya/catalogue:v1
+   image: sahiya/catalogue:k8
    resources:
     requests:
      cpu: "100m" ## 1cpu=1000mi cpu
