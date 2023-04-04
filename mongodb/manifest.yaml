@@ -10,7 +10,7 @@ spec:
  containers:
  - name: mongodb
    imagePullPolicy: Always
-   image: sahiya/mongodb:k8
+   image: sahiya/mongodb:v1
    resources:
        requests:
         cpu: "100m" ## 1cpu=1000mi cpu
