@@ -11,6 +11,8 @@ spec:
  - name: mongodb
    imagePullPolicy: Always
    image: sahiya/mongodb:v1
+   ports:
+    - containerPort: 80
    resources:
        requests:
         cpu: "100m" ## 1cpu=1000mi cpu
