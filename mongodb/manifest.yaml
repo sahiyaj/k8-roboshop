@@ -4,8 +4,8 @@ kind: Pod
 metadata:
  name: mongodb
  labels:
-  name: db
-  tire: backend
+  name: mongodb
+  tire: db
 spec:
  containers:
  - name: mongodb
@@ -24,11 +24,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
- name: db-service
+ name: mongodb
 spec:
   selector: 
-   name: db
-   tire: backend
+   name: mongodb
+   tire: db
   ports:
   - protocol: TCP
     port: 80
