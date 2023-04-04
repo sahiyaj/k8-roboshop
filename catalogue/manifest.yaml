@@ -2,15 +2,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
- name: web
+ name: catalogue
  labels:
-  name: web
-  tire: frontend
+  name: catalogue
+  tire: app
 spec:
  containers:
- - name: web
+ - name: catalogue
    imagePullPolicy: Always
-   image: sahiya/web:k8
+   image: sahiya/catalogue:k8
    resources:
     requests:
      cpu: "100m" ## 1cpu=1000mi cpu
@@ -21,17 +21,16 @@ spec:
    ports:
     - containerPort: 80
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
- name: web-service
+ name: catalogue-service
 spec:
  type: LoadBalancer
  selector: 
-  name: web
-  tire: frontend
+  name: catalogue
+  tire: app
  ports:
  - protocol: TCP
    port: 80
-   targetPort: 80  
+   targetPort: 8080  

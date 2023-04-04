@@ -1,0 +1,33 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+ name: mongodb
+ labels:
+  name: db
+  tire: backend
+spec:
+ containers:
+ - name: mongodb
+   imagePullPolicy: Always
+   image: sahiya/mongodb:k8
+   resources:
+       requests:
+        cpu: "100m" ## 1cpu=1000mi cpu
+        memory: "128Mi"
+       limits:
+        cpu: "100m"
+        memory: "128Mi" 
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: db-service
+spec:
+  selector: 
+  name: db
+  tire: backend
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 27017
