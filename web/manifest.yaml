@@ -13,11 +13,11 @@ spec:
     image: sahiya/web:k8
     resources:
       requests:
-        cpu: "100m"
-        memory: "128Mi"
+        cpu: "150m"
+        memory: "158Mi"
       limits:
-        cpu: "100m"
-        memory: "128Mi"
+        cpu: "150m"
+        memory: "158Mi"
     ports:
       - containerPort: 80
 ---
