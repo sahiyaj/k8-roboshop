@@ -10,7 +10,7 @@ spec:
   containers:
   - name: web
     imagePullPolicy: Always
-    image: sahiya/web:k8
+    image: sahiya/web:k81
     resources:
       requests:
         cpu: "128m"
