@@ -8,7 +8,7 @@ metadata:
   tier: app
 spec:
  containers:
- - name: web
+ - name: catalogue
    imagePullPolicy: Always
    image: sahiya/catalogue:k8
    resouces:
