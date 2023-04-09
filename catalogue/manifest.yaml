@@ -1,35 +1,33 @@
 ---
 apiVersion: v1
 kind: Pod
-metadata: 
- name: catalogue
- labels:
+metadata:
   name: catalogue
-  tier: app
+  labels:
+    name: catalogue
+    tier: app
 spec:
- containers:
- - name: catalogue
-   imagePullPolicy: Always
-   image: sahiya/catalogue:k8
-   resouces:
-    requests:  
-     cpu: "128m"
-     memory: "158Mi"
-    limits:  
-     cpu: "128m"
-     memory: "158Mi" 
-   ports:
-    - containerPort: 80
+  containers:
+  - name: catalogue
+    imagePullPolicy: Always
+    image: sahiya/catalogue:k8
+    resources:
+      requests:
+        cpu: "100m"
+        memory: "128Mi"
+      limits:
+        cpu: "100m"
+        memory: "128Mi"
 ---
 apiVersion: v1
 kind: Service
 metadata:
- name: catalogue-service
+  name: catalogue-service
 spec:
- selector: 
-  name: catalogue
-  tier: app
- ports:
- - protocol: TCP
-   port: 8080
-   targetPort: 8080    
+  selector:
+    name: catalogue
+    tier: app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
