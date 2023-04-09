@@ -19,7 +19,7 @@ spec:
     imagePullPolicy: Always
     image: sahiya/catalogue:k8
     envFrom:
-    - configRef:
+    - configMapRef:
        name: catalogue-config
     resources:
       requests:
