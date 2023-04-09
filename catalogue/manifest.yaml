@@ -2,15 +2,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: mongodb
+  name: catalogue
   labels:
-    name: mongodb
-    tier: db
+    name: catalogue
+    tier: app
 spec:
   containers:
-  - name: mongodb
+  - name: catalogue
     imagePullPolicy: Always
-    image: sahiya/mongodb:k81
+    image: sahiya/catalogue:k81
     resources:
       requests:
         cpu: "128m"
@@ -19,17 +19,17 @@ spec:
         cpu: "128m"
         memory: "152Mi"
     ports:
-      - containerPort: 27017
+      - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongodb-service
+  name: catalogue-service
 spec:
   selector:
-    name: mongodb
-    tier: db
+    name: catalogue
+    tier: app
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 27017
+      targetPort: 8080
