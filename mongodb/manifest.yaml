@@ -5,7 +5,7 @@ metadata:
   name: mongodb
   labels:
     name: mongodb
-    tier: app
+    tier: db
 spec:
   containers:
   - name: mongodb
@@ -28,7 +28,7 @@ metadata:
 spec:
   selector:
     name: mongodb
-    tier: app
+    tier: db
   ports:
     - protocol: TCP
       port: 27017
