@@ -28,8 +28,6 @@ spec:
       limits:
         cpu: "100m"
         memory: "128Mi"
-    ports:
-      - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -41,5 +39,5 @@ spec:
     tier: app
   ports:
     - protocol: TCP
-      port: 80
+      port: 8080
       targetPort: 8080
