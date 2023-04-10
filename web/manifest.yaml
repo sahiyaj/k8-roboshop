@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: pod
+metadata: 
+ name: web
+ labels: 
+  name: web
+  tire: frontend
+spec:
+ containers: 
+ - name: web
+   imagePullPolicy: Always
+   image: sahiya/web:k8.v1
+   ports:
+    - containerPort: 80
+   resources:
+    requests:
+     cpu: "100m"
+     memory: "158Mi"
+    linits:
+     cpu: "100m"
+     memory: "158Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+spec:
+  type: LoadBalancer
+  selector:
+    name: web
+    tier: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80     
+       
