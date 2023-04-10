@@ -186,3 +186,6 @@ app.listen(port, () => {
     logger.info('Started on port', port);
 });
 
+require('@instana/collector')({
+    agentPort: 42699
+  });
